@@ -1,0 +1,60 @@
+<div class="card mt-5" style="margin:auto;width: 600px;">
+    <div class="card-body" id="login">
+      <h5 class="card-title">Login</h5>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" class="form-control" id="email" placeholder="Email Address" [(ngModel)]="email">
+      </div>
+      <div class="form-group">
+        <label for="email">Password</label>
+        <input type="password" class="form-control" id="password" placeholder="Password" [(ngModel)]="password">
+      </div>
+      <button type="submit" class="btn btn-primary" (click)="tryLogin()">Login</button>
+      <br>
+      <br>
+      <button type="submit" class="btn btn-primary" (click)="singInGoogle('Google');">Sign in with Google</button><br /><br />
+      <button type="submit" class="btn btn-primary" (click)="getRegister()">Register</button><br /><br />
+    </div>
+  </div>
+  
+  
+  <div id="register">
+      <div class="card mt-5" style="margin:auto;width: 600px;">
+          <div class="card-body">
+            <h5 class="card-title">Sign Up</h5>
+            <div class="form-group">
+                <label for="fname">First Name</label>
+                <input type="text" class="form-control" id="fname" placeholder="First Name" [(ngModel)]="rfname" required>
+              </div>
+              <div class="form-group">
+                  <label for="lname">Last Name</label>
+                  <input type="text" class="form-control" id="lname" placeholder="Last Name" [(ngModel)]="rlname" required>
+                </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="text" class="form-control" id="email" placeholder="Email Address" [(ngModel)]="remail" required>
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" class="form-control" id="password" placeholder="Enter Password" [(ngModel)]="rpassword" required>
+            </div>
+            <div class="form-group">
+                <label for="cpassword">Confirm Password</label>
+                <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" class="form-control" id="cpassword" placeholder="Password" [(ngModel)]="rcpassowrd" required>
+              </div>
+              <div class="form-group">
+                  <label for="question">Confirm Password</label>
+                  <select class="form-control" id="question" placeholder="choose a question" [(ngModel)]="rquestion" required>
+                    <option>what is your pet</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                    <label for="answer">Confirm Password</label>
+                    <input type="text" class="form-control" id="answer" placeholder="enter your answer" [(ngModel)]="ranswer" required>
+                  </div>
+            <button type="submit" class="btn btn-primary" (click)="signUp()">Register</button><br /><br />
+            <button type="submit" class="btn btn-primary" (click)="singUpGoogle('Google');">Sign up with Google</button><br /><br />
+            <a (click)="redirect()" class="btn btn-link">Cancel</a>
+          </div>
+        </div>
+        </div>

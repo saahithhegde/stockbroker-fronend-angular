@@ -1,0 +1,19 @@
+<div class="logo">
+  <a href="#" class="simple-text">
+      Stock Broker
+  </a>
+</div>
+<div class="sidebar-wrapper">
+  <ul class="nav">
+      <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}} nav-item">
+          <a class="nav-link" [routerLink]="[menuItem.path]">
+              <i class="material-icons">{{menuItem.icon}}</i>
+              <p>{{menuItem.title}}</p>
+          </a>
+      </li>
+      <li class="nav-item" >
+        <button name="logout" id="right" value="logout" (click)="logout()">logout</button>
+      </li>
+
+  </ul>
+</div>

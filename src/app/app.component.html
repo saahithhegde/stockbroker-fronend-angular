@@ -1,0 +1,33 @@
+<div class="wrapper">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Stock Broker Services</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item ">
+        <a class="nav-link" href="/dashboard">Dashboard<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/profile">Profile</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/payment">Payment Info</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/stocks">Stocks</a>
+      </li>
+      <li class="nav-item" >
+        <button name="logout" id="right" value="logout" (click)="logout()">logout</button>
+      </li>
+    </ul>
+  </div>
+</nav>
+  <div class="main-panel">
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,15 @@
+[
+	{
+		"Ticker Symbol": "GOG",
+		"Name": "Google",
+		"Price": 2.19,
+		"Quantity": 20,
+	},
+	{
+		"Ticker Symbol": "APP",
+		"Name":"Apple",
+		"Price": 10,
+		"Quantity": 10
+	}
+]
+                                           

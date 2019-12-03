@@ -1,0 +1,75 @@
+
+<div class="col-md-8">
+  <div class="card card-user">
+    <div class="card-header">
+      <h5 class="card-title">Add Bank Account</h5>
+    </div>
+    <div class="card-body">
+      <form>
+
+        <div class="row">
+          <div class="col-md-6 pr-1">
+            <div class="form-group">
+              <label>Bank Account Number</label>
+              <input type="number" class="form-control" placeholder="Bank Account Number" [formControl]="accountno">
+            </div>
+          </div>
+          <div class="col-md-6 pl-1">
+            <div class="form-group">
+              <label>Routing Number</label>
+              <input type="number" class="form-control" placeholder="Routing Number" [formControl]="routingno">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+            <div class="update ml-auto mr-auto">
+              <input type="checkbox" (ngModel)="isChecked" name="default">Set as default<br>
+            </div>
+          </div>
+        <div class="row">
+          <div class="update ml-auto mr-auto">
+            <button type="submit" class="btn btn-primary btn-round" (click)="addBankAccount()">Save</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-8">
+    <div class="table-wrapper">
+      <div class="table-title">
+        <div class="row">
+          <div class="col-sm-8">
+            <h2>Bank Details</h2>
+          </div>
+        </div>
+      </div>
+<table class="table table-bordered">
+    <thead>
+    <tr>
+      <th>Account No</th>
+      <th>Routing No</th>
+      <th>Balance</th>
+      <th>Default</th>
+      <th></th>
+      
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor ="let item of data;">
+    <!--<tr ng-repeat = "item in data | filter:search">-->
+      <td style="display: none;">{{item.email}}</td>
+      <td>{{item.accountno}}</td>
+      <td>{{item.routingno}}</td>
+      <td>{{item.balance}}</td>
+      <td>Yes</td>
+      <td>
+          <a class="delete" (click)="deleteAccount(item.accountno)" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+       </td>
+    </tr>
+
+    </tbody>
+  </table>
+</div>
+</div>
