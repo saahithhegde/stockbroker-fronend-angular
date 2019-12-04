@@ -15,8 +15,10 @@ import { HttpClient } from '@angular/common/http';
 export class AppComponent {
   title = 'app';
   public sessiontoken: any;
+  public name:any;
   constructor(private customer: CustomerService,private  router: Router,private _socioAuthServ: AuthService, private http: HttpClient) {
     this.sessiontoken = sessionStorage.getItem("TOKEN");
+    this.name=sessionStorage.getItem("NAME")
     }
   
     logout(){

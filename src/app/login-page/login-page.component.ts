@@ -102,10 +102,12 @@ export class LoginPageComponent {
   {
     document.getElementById("register").style.display="block";
     document.getElementById("login").style.display="none";
+    document.getElementById("forgotpassword").style.display="none";
   }
   redirect(){
   document.getElementById("login").style.display="block";
   document.getElementById("register").style.display="none";
+  document.getElementById("forgotpassword").style.display="none";
 
   }
  
@@ -165,6 +167,22 @@ export class LoginPageComponent {
 
       }
     )
+  }
+  forgotpasswordfunc(){
+    document.getElementById("register").style.display="none";
+    document.getElementById("login").style.display="none";
+    document.getElementById("forgotpassword").style.display="block";
+  }
+  showpassword(){
+    this.http.post('/api/forgotPassword',
+    { "email":this.remail,
+    "question": this.rquestion,
+    "answer": this.ranswer,
+  },{ responseType: 'text' }).subscribe(
+    response => {
+      alert(response); 
+      
+  });
   }
 
 }
