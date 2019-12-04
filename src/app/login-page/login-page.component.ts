@@ -28,6 +28,7 @@ export class LoginPageComponent {
   }
   ngOnInit() {
   this.customer.logout();
+  this._socioAuthServ.signOut();
   }
   tryLogin() {
     if(this.email==null && this.password==null)

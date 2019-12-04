@@ -42,15 +42,18 @@ const appRoutes: Routes = [
   },
   {
       path: 'profile',
-      component: ProfileComponent
+      component: ProfileComponent,
+      canActivate: [NeedAuthGuard]
     },
     {
         path: 'payment',
-        component: PaymentComponent
+        component: PaymentComponent,
+        canActivate: [NeedAuthGuard]
       },
       {
         path: 'stocks',
-        component: StocksComponent
+        component: StocksComponent,
+        canActivate: [NeedAuthGuard]
       },
 
 ];

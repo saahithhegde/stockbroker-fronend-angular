@@ -7,16 +7,16 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item ">
-        <a class="nav-link" href="/dashboard">Dashboard<span class="sr-only">(current)</span></a>
+        <a class="nav-link" (click)="this.router.navigateByUrl('/dashboard');">Dashboard<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/profile">Profile</a>
+        <a class="nav-link" (click)="this.router.navigateByUrl('/profile');">Profile</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/payment">Payment Info</a>
+        <a class="nav-link" (click)="this.router.navigateByUrl('/payment');">Payment Info</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/stocks">Stocks</a>
+        <a class="nav-link" (click)="this.router.navigateByUrl('/stocks');">Stocks</a>
       </li>
       <li class="nav-item">
           <p class="nav-link">Hello {{name}}</p>

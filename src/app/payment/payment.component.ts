@@ -15,6 +15,11 @@ export class PaymentComponent implements OnInit {
   public sessiontoken: any;
   public data:any;
   public  isChecked : boolean;
+  public bankdata:any;
+  accountno1=new FormControl('');
+  accountno2=new FormControl('');
+  amount=new FormControl('');
+
 
 
  
@@ -29,6 +34,7 @@ export class PaymentComponent implements OnInit {
     .subscribe(
           response => {
               this.data = response;
+              this.bankdata=response;
               //this.data = Array.of(this.data);
               console.log("data :"+response);
          });
@@ -70,4 +76,28 @@ export class PaymentComponent implements OnInit {
          });
   }
  
+  transfer(){
+    if(this.accountno1.value==null || this.accountno2.value==null || this.amount.value==null)
+    {
+      alert("enter all details to transfer");
+    }
+    else if (this.accountno1.value==this.accountno2.value)
+    {
+      alert("cannot transfer to same accounts");
+    }
+    else{
+      this.http.post('/api/transferBankFunds',
+    { "account1":this.accountno1.value,
+      "account2":this.accountno2.value,
+      "amount":this.amount.value
+  },{ responseType: 'text' })
+    .subscribe(
+          response => {
+            alert(response);
+            this.ngOnInit();
+            
+         });
+
+    }
+  }
   }

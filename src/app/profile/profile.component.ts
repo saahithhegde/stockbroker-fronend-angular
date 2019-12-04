@@ -16,11 +16,13 @@ export class ProfileComponent implements OnInit {
   fname=new FormControl('');
   lname=new FormControl('');
   public sessiontoken: any;
+  public name:any;
  
   
 
   constructor(private formBuilder: FormBuilder,private  router: Router,private http: HttpClient) {
     this.sessiontoken = sessionStorage.getItem("TOKEN");
+    this.name = sessionStorage.getItem("NAME");
    }
 
 
@@ -46,7 +48,8 @@ export class ProfileComponent implements OnInit {
     "password":this.password.value
   },{ responseType: 'text' }).subscribe(
     response => {
-
+      sessionStorage.removeItem("NAME");
+      sessionStorage.setItem("NAME",this.fname.value);
    alert(response);
    this.ngOnInit();
     
