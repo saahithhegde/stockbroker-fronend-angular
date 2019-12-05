@@ -15,6 +15,8 @@ import { SideBarModule } from './side-bar/side-bar.module';
 import { ProfileComponent } from './profile/profile.component';
 import { PaymentComponent } from './payment/payment.component';
 import { StocksComponent } from './stocks/stocks.component';
+import { QuerystocksComponent } from './querystocks/querystocks.component';
+import { ScheduleComponent } from './schedule/schedule.component';
 
 
 const google_oauth_client_id:string = '351246264386-jf6d99n4g6ofkq66u7iq7oer94qbgheo.apps.googleusercontent.com';
@@ -55,6 +57,16 @@ const appRoutes: Routes = [
         component: StocksComponent,
         canActivate: [NeedAuthGuard]
       },
+      {
+        path: 'querystocks',
+        component: QuerystocksComponent,
+        canActivate: [NeedAuthGuard]
+      },
+      {
+        path: 'schedule',
+        component: ScheduleComponent,
+        canActivate: [NeedAuthGuard]
+      },
 
 ];
 
@@ -65,6 +77,8 @@ const appRoutes: Routes = [
     ProfileComponent,
     PaymentComponent,
     StocksComponent,
+    QuerystocksComponent,
+    ScheduleComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,135 @@
+
+<div id="wrapper">
+    <div id="content-wrapper">
+  
+      <div class="container-fluid">
+  
+        <!-- DataTables Example -->
+        <div class="container">
+          <div class="table-wrapper">
+            <div class="table-title">
+              <div class="row">
+                <div class="col-sm-8">
+                  <h2>Schedule Buy and Sell</h2>
+                </div>
+              </div>
+            </div>
+            <!--Ticker Symbol-->
+            <!--<label>Choose a ticker Symbol</label>
+          
+            <select class="form-control" id="tickersymbol" placeholder="choose a ticker symbol" [(ngModel)]="tickersymbol" required>
+                <option *ngFor="let t of ts">{{t.tickersymbol}}</option>
+            </select>-->
+            <label>Type in a ticker Symbol</label><br>
+            <select class="form-control" placeholder="choose a stocksymbol" [(ngModel)]="tickersymbol" required>
+                <option *ngFor="let item of data">{{item.tickersymbol}}</option>
+            </select>
+            <br><br>
+            <label>Enter Quantity</label>
+            <br>
+            <input type="text" id="quantity" value="0" [(ngModel)]="quantity"/>
+            <br>
+            <br>
+            <label>Select a bank account</label><br>
+            <select class="form-control" id="accountno" placeholder="choose an account" [(ngModel)]="accountno" required>
+                <option *ngFor="let item of bankdata">{{item.accountno}}</option>
+            </select>
+            <br>
+            <label>Select an action</label><br>
+            <select class="form-control" id="acrion" placeholder="choose an action" [(ngModel)]="action" required>
+                <option>Buy</option>
+                <option>Sell</option>
+            </select>
+            <br>
+            <label>Select time to schedule</label><br>
+            <input type="datetime" [(ngModel)]="time">
+            <br><br>
+            <button type="submit" class="btn btn-primary" (click)="submitquery()">Schedule</button>
+            <br>
+            <br>
+            <div id="wrapper">
+                <div id="content-wrapper">
+              
+                  <div class="container-fluid">
+              
+                    <!-- DataTables Example -->
+                    <div class="container">
+                      <div class="table-wrapper">
+                        <div class="table-title">
+                          <div class="row">
+                            <div class="col-sm-8">
+                              <h2>Schedules</h2>
+                            </div>
+                          </div>
+                        </div>
+              
+                        <!--Name <input type="text" ng-model = "search.Name">
+                        <br><br>-->
+                        <table class="table table-bordered">
+                          <thead>
+                          <tr>
+                            <th>Ticker Symbol</th>
+                            <th>Quantity</th>
+                            <th>Bank Account</th>
+                            <th>Time</th>
+                            <th>Action</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <tr *ngFor ="let item of data;">
+                            <td>{{item.tickersymbol}}</td>
+                            <td>{{item.quantity}}</td>
+                            <td>{{item.accountno}}</td>
+                            <td>{{item.time}}</td>
+                           <td>{{item.action}}</td>
+                            <td>
+                              <button type="submit" class="btn btn-primary" (click)="deletesched()">Delete</button>
+                            </td>
+                          </tr>
+              
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    <!-- /.container-fluid -->
+              
+                    <!-- Sticky Footer -->
+                    <footer class="sticky-footer">
+                      <div class="container my-auto">
+                        <div class="copyright text-center my-auto">
+                          <span>Copyright © Your Website 2019</span>
+                        </div>
+                      </div>
+                    </footer>
+              
+                  </div>
+                  <!-- /.content-wrapper -->
+              
+                </div>
+       
+      </div>
+      <!-- /.content-wrapper -->
+  
+    </div>
+    <!-- /#wrapper -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
+  
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  
+    <!-- Page level plugin JavaScript-->
+    <script src="vendor/chart.js/Chart.min.js"></script>
+    <script src="vendor/datatables/jquery.dataTables.js"></script>
+    <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
+  
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin.min.js"></script>
+  
+    <!-- Demo scripts for this page-->
+    <script src="js/demo/datatables-demo.js"></script>
+    <script src="js/demo/chart-area-demo.js"></script>
+  

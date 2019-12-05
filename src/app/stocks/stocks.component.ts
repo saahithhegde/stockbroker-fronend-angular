@@ -12,15 +12,25 @@ import { HttpClient } from '@angular/common/http';
 })
 export class StocksComponent implements OnInit {
   public data: any;
+  public bankdata: any;
   public sessiontoken: any;
+  accountno='';
+  quantity='';
 
   constructor(private customer: CustomerService,private  router: Router,private _socioAuthServ: AuthService, private http: HttpClient) {
     this.sessiontoken = sessionStorage.getItem("TOKEN");
     }
 
   ngOnInit() {
-    this.http.post('/api/getUserStocks',
+    this.http.post('/api/getBankDetails',
     { "email":this.sessiontoken})
+    .subscribe(
+          response => {
+              this.bankdata = response;
+              //this.data = Array.of(this.data);
+              console.log("data :"+response);
+         });
+    this.http.get('/api/getAllStocks')
     .subscribe(
           response => {
               this.data = response;
@@ -29,20 +39,25 @@ export class StocksComponent implements OnInit {
          });
   }
   buyMyStocks(item){
-    this.http.post('/api/buyCurrentStocks',
-    { "stock":item["tickersymbol"],
-      "quantity":(document.getElementById("quantity") as HTMLInputElement).value
-    })
+    if(this.accountno==null || this.quantity==null || item["tickersymbol"]==null || item["stockname"]==null)
+    {
+      alert("enter both fields");
+    }
+    else{
+    this.http.post('/api/buyNewStock',
+    { "tickersymbol":item["tickersymbol"],
+      "stockname":item["stockname"],
+      "accountno":this.accountno,
+      "quantity":this.quantity,
+      "email":this.sessiontoken,
+      "currentprice":item["currentprice"]
+      },{ responseType: 'text' })
     .subscribe(
           response => {
-              this.data = response;
-              //this.data = Array.of(this.data);
-              console.log("data :"+response);
+           alert(response)
+           this.ngOnInit();
          });
-    alert(item["tickersymbol"]+ (document.getElementById("quantity") as HTMLInputElement).value);
   }
-  sellMyStocks(item){
-    alert(item);
   }
 
 }

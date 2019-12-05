@@ -38,7 +38,8 @@ quantity='';
     this.http.post('/api/buyCurrentStocks',
     { "stocktableid":item["stocktableid"],
       "accountno":this.accountno,
-      "quantity":this.quantity
+      "quantity":this.quantity,
+      "currentprice":item["currentprice"]
       },{ responseType: 'text' })
     .subscribe(
           response => {
@@ -56,7 +57,8 @@ quantity='';
     this.http.post('/api/sellCurrentStocks',
     { "stocktableid":item["stocktableid"],
       "accountno":this.accountno,
-      "quantity":this.quantity
+      "quantity":this.quantity,
+      "currentprice":item["currentprice"]
       },{ responseType: 'text' })
     .subscribe(
           response => {

@@ -10,50 +10,45 @@
             <div class="table-title">
               <div class="row">
                 <div class="col-sm-8">
-                  <h2>Stock Holdings</h2>
+                  <h2>View Stock Information</h2>
                 </div>
               </div>
             </div>
-  
-            <!--Name <input type="text" ng-model = "search.Name">
-            <br><br>-->
-            <label>Enter Quantity to Buy/Sell</label>
-              <td><input type="text" id="quantity" value="0" [(ngModel)]="quantity"/></td>
-              <br>
-              <br>
-              <label>Select Bank Account to buy/sell</label>
-              <td>
-                  <select class="form-control" id="accountno" placeholder="choose an account" [(ngModel)]="accountno" required>
-                      <option *ngFor="let item of bankdata">{{item.accountno}}</option>
-                  </select>
-              </td>
-              <br>
-              <br>
+            <!--Ticker Symbol-->
+            <!--<label>Choose a ticker Symbol</label>
+          
+            <select class="form-control" id="tickersymbol" placeholder="choose a ticker symbol" [(ngModel)]="tickersymbol" required>
+                <option *ngFor="let t of ts">{{t.tickersymbol}}</option>
+            </select>-->
+            <label>Type in a ticker Symbol</label><br>
+            <select class="form-control" placeholder="choose a stocksymbol" [(ngModel)]="tickersymbol" required>
+                <option *ngFor="let item of data">{{item.tickersymbol}}</option>
+            </select>
+            <!--Duration-->
+            <br>
+            <label>Choose duration</label>
+            <select class="form-control" id="duration" placeholder="choose a duration" [(ngModel)]="duration" required>
+                <option>current</option>
+                <option>week</option>
+                <option>pastweek</option>
+                <option>month</option>
+                <option>year</option>
+                <option>5years</option>
+            </select>
+            <br>
+            <button type="submit" class="btn btn-primary" (click)="submitquery()">Find Stock</button>
+            <br>
+            <br>
             <table class="table table-bordered">
               <thead>
               <tr>
-                <th>Ticker Symbol</th>
-                <th>Stock Name</th>
-                <th>Quantity</th>
                 <th>Current Price</th>
-                <th>Actions</th>
               </tr>
               </thead>
               <tbody>
-              <tr *ngFor ="let item of data;">
+              <tr *ngFor ="let item of history;">
               <!--<tr ng-repeat = "item in data | filter:search">-->
-                <td style="display: none;">{{item.stocktableid}}</td>
-                <td>{{item.tickersymbol}}</td>
-                
-                <td>{{item.stockname}}</td>
-                <td>{{item.quantity}}</td>
-                <td>{{item.currentprice}}</td>
-              
-                <td>
-                  <button  class="btn btn-primary" (click)="buyMyStocks(item)">Buy</button>
-                  <br>
-                  <button class="btn btn-primary" (click)="sellMyStocks(item)">Sell</button>
-                </td>
+                <td>{{item}}</td>
               </tr>
   
               </tbody>
@@ -96,3 +91,4 @@
     <!-- Demo scripts for this page-->
     <script src="js/demo/datatables-demo.js"></script>
     <script src="js/demo/chart-area-demo.js"></script>
+  
