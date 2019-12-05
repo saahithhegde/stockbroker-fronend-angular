@@ -27,8 +27,7 @@
             <br><br>
             <label>Enter Quantity</label>
             <br>
-            <input type="text" id="quantity" value="0" [(ngModel)]="quantity"/>
-            <br>
+            <input type="text" id="quantity" [(ngModel)]="quantity"/>
             <br>
             <label>Select a bank account</label><br>
             <select class="form-control" id="accountno" placeholder="choose an account" [(ngModel)]="accountno" required>
@@ -36,13 +35,17 @@
             </select>
             <br>
             <label>Select an action</label><br>
-            <select class="form-control" id="acrion" placeholder="choose an action" [(ngModel)]="action" required>
+            <select class="form-control" id="action" placeholder="choose an action" [(ngModel)]="action" required>
                 <option>Buy</option>
                 <option>Sell</option>
             </select>
             <br>
+            <label>Enter Recuring Hours</label>
+            <br>
+            <input type="text" id="recurringvalue" [(ngModel)]="recurringvalue"/>
+            <br>
             <label>Select time to schedule</label><br>
-            <input type="datetime" [(ngModel)]="time">
+            <input type="date" [(ngModel)]="time">
             <br><br>
             <button type="submit" class="btn btn-primary" (click)="submitquery()">Schedule</button>
             <br>

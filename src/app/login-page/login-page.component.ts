@@ -5,7 +5,7 @@ import {Router} from '@angular/router';
 import { AuthService, GoogleLoginProvider } from 'angular4-social-login';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-login-page',
@@ -23,6 +23,7 @@ export class LoginPageComponent {
   ranswer='';
   rfname='';
   rlname='';
+  const header = new HttpHeaders({Authorization: 'Basic ' + btoa('test:test123')});
 
   constructor(private http: HttpClient,private api: ApiService, private customer: CustomerService, private router: Router,private _socioAuthServ: AuthService) {
   }

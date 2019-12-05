@@ -1,5 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import {NgModule, Component} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {HttpClientModule} from '@angular/common/http';
 import {AppComponent} from './app.component';
@@ -17,6 +17,9 @@ import { PaymentComponent } from './payment/payment.component';
 import { StocksComponent } from './stocks/stocks.component';
 import { QuerystocksComponent } from './querystocks/querystocks.component';
 import { ScheduleComponent } from './schedule/schedule.component';
+import { NotfoundComponent } from './notfound/notfound.component';
+
+
 
 
 const google_oauth_client_id:string = '351246264386-jf6d99n4g6ofkq66u7iq7oer94qbgheo.apps.googleusercontent.com';
@@ -67,6 +70,10 @@ const appRoutes: Routes = [
         component: ScheduleComponent,
         canActivate: [NeedAuthGuard]
       },
+    {
+      path:'**',
+      component: NotfoundComponent
+    }
 
 ];
 
@@ -79,6 +86,7 @@ const appRoutes: Routes = [
     StocksComponent,
     QuerystocksComponent,
     ScheduleComponent,
+    NotfoundComponent
   ],
   imports: [
     BrowserModule,

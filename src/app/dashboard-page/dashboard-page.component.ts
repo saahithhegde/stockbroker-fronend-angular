@@ -3,8 +3,9 @@ import {CustomerService} from '../customer.service';
 import {Router} from '@angular/router';
 import { AuthService, GoogleLoginProvider } from 'angular4-social-login';
 import * as Chartist from 'chartist';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+
 
 @Component({
   selector: 'app-dashboard-page',
@@ -17,6 +18,7 @@ public bankdata:any;
 public sessiontoken: any;
 accountno='';
 quantity='';
+header = new HttpHeaders({Authorization: 'Basic ' + btoa('test:test123')});
 
 
 
@@ -69,6 +71,7 @@ quantity='';
   }
 
   ngOnInit() {
+    
     this.http.post('/api/getBankDetails',
     { "email":this.sessiontoken})
     .subscribe(

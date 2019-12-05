@@ -13,6 +13,11 @@ export class ScheduleComponent implements OnInit {
   public sessiontoken: any;
   public data:any;
   tickersymbol='';
+  accountno='';
+  action='';
+  time='';
+  quantity='';
+  recurringvalue='';
 
     constructor(private formBuilder: FormBuilder,private  router: Router,private http: HttpClient) {
       this.sessiontoken = sessionStorage.getItem("TOKEN");
@@ -42,6 +47,19 @@ export class ScheduleComponent implements OnInit {
 
       }
       submitquery(){
+        this.http.post('/api/addSchedule',
+      { "email":this.sessiontoken,
+        "ticekrsymbol":this.tickersymbol,
+        "buyorsell":this.action,
+        "accountno":this.accountno,
+        "Quantity":this.quantity,
+        "recurringvalue":this.recurringvalue
+      })
+    .subscribe(
+          response => {
+              alert(response);
+              //this.data = Array.of(this.data);
+         });
         
       }
   }

@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient,HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {LoginResultModel} from './model/LoginResultModel'
 import { stringify } from 'querystring';
@@ -16,19 +16,21 @@ export class ApiService {
   }
 
   login(emails: string, password: string): Observable<LoginResultModel>{
-    return this.http.post<LoginResultModel>('/api/login', {
+    const header = new HttpHeaders({Authorization: 'Basic ' + btoa('test:test123')});
+    return this.http.post<LoginResultModel>('/api/login',{
       email: emails,
       password: password
-    });
+    },{headers:header});
   }
   register(fname: String, lname: String,pwd: String, emails: String): Observable<LoginResultModel>{
+    const header = new HttpHeaders({Authorization: 'Basic ' + btoa('test:test123')});
     return this.http.post<LoginResultModel>('/api/signUp', {
       firstname: fname,
       lastname: lname,
       password: pwd,
       email: emails
       //select_option: s_option
-    });
+    },{headers:header});
   }
 
 }
