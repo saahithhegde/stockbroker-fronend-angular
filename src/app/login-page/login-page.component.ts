@@ -23,7 +23,7 @@ export class LoginPageComponent {
   ranswer='';
   rfname='';
   rlname='';
-  const header = new HttpHeaders({Authorization: 'Basic ' + btoa('test:test123')});
+  
 
   constructor(private http: HttpClient,private api: ApiService, private customer: CustomerService, private router: Router,private _socioAuthServ: AuthService) {
   }
