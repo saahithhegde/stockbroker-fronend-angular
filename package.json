@@ -23,7 +23,7 @@
     "@angular/router": "^6.0.3",
     "angular-oauth2-oidc": "^8.0.4",
     "angular4-social-login": "^1.1.1",
-    "auth0-js": "^9.11.3",
+    "auth0-js": "^9.13.2",
     "bootstrap": "^4.3.1",
     "chartist": "^0.11.4",
     "core-js": "^2.5.4",
